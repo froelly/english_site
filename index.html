@@ -2,157 +2,136 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Froelly | FC Bayern Fan Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Froelly | FC Bayern</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bayern-red: #dc052d;
-            --bayern-navy: #001f3f;
-            --glass: rgba(255, 255, 255, 0.07);
+            --red: #dc052d;
+            --navy: #001f3f;
+            --glass: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.15);
         }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             margin: 0;
-            padding: 20px 0;
+            padding: 10px;
             font-family: 'Roboto', sans-serif;
-            background: radial-gradient(circle at top, #1a1a1a 0%, #000c1a 100%);
+            background: radial-gradient(circle at top, #1a1a1a 0%, #000814 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-            overflow-x: hidden;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .card {
-            width: 90%;
-            max-width: 400px;
+        /* --- НОВАЯ ШАПКА --- */
+        .profile-card {
+            width: 100%;
+            max-width: 380px;
             background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 25px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 20px rgba(220, 5, 45, 0.1);
-            animation: fadeIn 1s ease-out;
-            margin-bottom: 30px;
-        }
-
-        .avatar-container {
-            position: relative;
-            display: inline-block;
             margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .main-avatar {
-            width: 120px;
-            height: 120px;
+        .avatar-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            border: 4px solid var(--bayern-red);
-            background-image: url(olise.jpg); /* ОБЯЗАТЕЛЬНО: ФОТО ДОЛЖНО ЛЕЖАТЬ РЯДОМ С index.html */
-            background-size: cover;
-            background-position: center;
-            transition: 0.5s;
-            box-shadow: 0 0 20px var(--bayern-red);
-            background-color: #333;
+            border: 3px solid var(--red);
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(220, 5, 45, 0.5);
+            background-color: #222; /* Цвет пока грузится фото */
+            display: block;
         }
 
-        .avatar-container:hover .main-avatar {
-            transform: rotate(5deg) scale(1.05);
-        }
-
-        .bayern-badge {
+        .badge {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 40px;
-            height: 40px;
-            background: var(--bayern-red);
+            bottom: 0;
+            right: 0;
+            background: var(--red);
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            border: 3px solid white;
+            border: 2px solid white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 5, 45, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(220, 5, 45, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 5, 45, 0); }
+            font-family: 'Oswald';
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         h1 {
             font-family: 'Oswald', sans-serif;
+            font-size: 28px;
             margin: 10px 0;
-            font-size: 32px;
+            text-transform: uppercase;
             letter-spacing: 2px;
-            background: linear-gradient(to right, #fff, var(--bayern-red));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
         }
 
         .bio {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
             font-size: 14px;
-            line-height: 1.6;
-            margin: 20px 0;
-            border-left: 4px solid var(--bayern-red);
-            text-align: left;
+            opacity: 0.9;
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link-item {
+        .btn {
             display: block;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 15px;
-            font-family: 'Oswald', sans-serif;
+            color: white;
+            font-family: 'Oswald';
             text-transform: uppercase;
-            transition: 0.4s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 16px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .link-item:hover {
-            background: var(--bayern-red);
-            transform: translateX(10px);
-            box-shadow: -10px 0 20px rgba(220, 5, 45, 0.4);
-        }
+        .btn-tg { background: #24A1DE; }
+        .btn-tt { background: #000; }
+        .btn-gh { background: #333; }
+        .btn:active { transform: scale(0.97); }
 
-        /* --- WORDLE --- */
-        .wordle-section {
-            width: 90%;
-            max-width: 400px;
+        /* --- WORDLE ОПТИМИЗАЦИЯ --- */
+        .wordle-card {
+            width: 100%;
+            max-width: 380px;
             background: var(--glass);
-            border-radius: 30px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            margin-bottom: 50px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 15px;
+            margin-bottom: 30px;
         }
 
         .wordle-grid {
             display: grid;
-            grid-template-rows: repeat(6, 1fr);
             gap: 5px;
             margin-bottom: 15px;
+            width: 100%;
         }
 
         .wordle-row {
@@ -168,11 +147,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
-            border-radius: 8px;
-            transition: 0.3s;
+            border-radius: 6px;
         }
 
         .tile.correct { background: #538d4e; border-color: #538d4e; }
@@ -180,311 +158,169 @@
         .tile.absent { background: #3a3a3c; border-color: #3a3a3c; }
 
         .keyboard {
+            display: grid;
+            gap: 6px;
+        }
+
+        .kb-row {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 5px;
+            gap: 4px;
         }
 
         .key {
-            padding: 10px 5px;
-            min-width: 32px;
             background: #818384;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 13px;
-            user-select: none;
-        }
-
-        .key.wide { min-width: 50px; }
-        .key:active { transform: scale(0.9); }
-
-        .footer {
-            margin-bottom: 30px;
-            font-size: 11px;
-            opacity: 0.4;
-            letter-spacing: 2px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="card">
-    <div class="avatar-container">
-        <div class
-            border: 3px solid white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 5, 45, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(220, 5, 45, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 5, 45, 0); }
-        }
-
-        h1 {
-            font-family: 'Oswald', sans-serif;
-            margin: 10px 0;
-            font-size: 32px;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #fff, var(--bayern-red));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .bio {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 20px 0;
-            border-left: 4px solid var(--bayern-red);
-            text-align: left;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link-item {
-            display: block;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.1);
             color: white;
-            text-decoration: none;
-            border-radius: 15px;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            transition: 0.4s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .link-item:hover {
-            background: var(--bayern-red);
-            transform: translateX(10px);
-            box-shadow: -10px 0 20px rgba(220, 5, 45, 0.4);
-        }
-
-        /* --- WORDLE --- */
-        .wordle-section {
-            width: 90%;
-            max-width: 400px;
-            background: var(--glass);
-            border-radius: 30px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .wordle-grid {
-            display: grid;
-            grid-template-rows: repeat(6, 1fr);
-            gap: 5px;
-            margin-bottom: 15px;
-        }
-
-        .wordle-row {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 5px;
-        }
-
-        .tile {
-            width: 100%;
-            aspect-ratio: 1;
-            border: 2px solid #444;
+            border: 0;
+            padding: 0;
+            height: 45px;
+            flex: 1;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
             text-transform: uppercase;
-            border-radius: 8px;
-            transition: 0.3s;
         }
 
-        .tile.correct { background: #538d4e; border-color: #538d4e; }
-        .tile.present { background: #b59f3b; border-color: #b59f3b; }
-        .tile.absent { background: #3a3a3c; border-color: #3a3a3c; }
+        .key.wide { flex: 1.5; font-size: 11px; }
 
-        .keyboard {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .key {
-            padding: 10px 5px;
-            min-width: 32px;
-            background: #818384;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 13px;
-            user-select: none;
-        }
-
-        .key.wide { min-width: 50px; }
-        .key:active { transform: scale(0.9); }
-
-        .footer {
-            margin-bottom: 30px;
-            font-size: 11px;
-            opacity: 0.4;
-            letter-spacing: 2px;
+        @media (max-width: 360px) {
+            .tile { font-size: 1.2rem; }
+            .key { height: 40px; font-size: 11px; }
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="avatar-container">
-        <div class="main-ava
-tar"></div> 
-        <div class="bayern-badge">FCB</div>
+<div class="profile-card">
+    <div class="avatar-wrapper">
+        <!-- ФОТО ТУТ: Убедись, что файл на GitHub называется ТОЧНО olise.jpg -->
+        <img src="olise.jpg" alt="Froelly" class="avatar-img" onerror="this.src='https://via.placeholder.com/110/222/fff?text=FCB'">
+        <div class="badge">FCB</div>
     </div>
 
     <h1>FROELLY</h1>
     
     <div class="bio">
-        <strong>⚡️ ABOUT ME:</strong><br>
-        Web app developer in progress. Die-hard fan of <strong>FC Bayern</strong> & <strong>Zenit</strong>. Creating cool stuff and coding 24/7.
+        Web App Developer. <br>
+        Fan of <b>FC Bayern</b> & <b>Zenit</b>.
     </div>
 
     <div class="links">
-        <a href="https://t.me/+fKYj8vE7cPI4ZDAy" class="link-item" style="border-left: 4px solid #24A1DE;">Telegram Channel</a>
-        <a href="https://tiktok.com/@froelly" class="link-item" style="border-left: 4px solid #ee1d52;">TikTok</a>
-        <a href="https://github.com/froelly" class="link-item" style="border-left: 4px solid #fff;">GitHub</a>
+        <a href="https://t.me/+fKYj8vE7cPI4ZDAy" class="btn btn-tg">Telegram</a>
+        <a href="https://tiktok.com/@froelly" class="btn btn-tt">TikTok</a>
+        <a href="https://github.com/froelly" class="btn btn-gh">GitHub</a>
     </div>
 </div>
 
-<div class="wordle-section">
-    <h3 style="font-family: 'Oswald'; color: var(--bayern-red); margin-top: 0;">FOOTBALL WORDLE</h3>
-    <p style="font-size: 12px; opacity: 0.7; margin-bottom: 15px;">Guess the Bayern Legend (6 letters)</p>
-    
+<div class="wordle-card">
+    <h3 style="font-family: 'Oswald'; margin-top: 0; color: var(-
+-red); text-align: center;">FOOTBALL WORDLE</h3>
     <div class="wordle-grid" id="grid"></div>
 
-    <div class="keyboard" id="keyboard"></div>
-</div>
-
-<div class="footer">
-    DESIGNED BY FROELLY | 2024
+    <div class="keyboard">
+        <div class="kb-row">
+            <button class="key" onclick="handleInput('Q')">Q</button>
+            <button class="key" onclick="handleInput('W')">W</button>
+            <button class="key" onclick="handleInput('E')">E</button>
+            <button class="key" onclick="handleInput('R')">R</button>
+            <button class="key" onclick="handleInput('T')">T</button>
+            <button class="key" onclick="handleInput('Y')">Y</button>
+            <button class="key" onclick="handleInput('U')">U</button>
+            <button class="key" onclick="handleInput('I')">I</button>
+            <button class="key" onclick="handleInput('O')">O</button>
+            <button class="key" onclick="handleInput('P')">P</button>
+        </div>
+        <div class="kb-row">
+            <button class="key" onclick="handleInput('A')">A</button>
+            <button class="key" onclick="handleInput('S')">S</button>
+            <button class="key" onclick="handleInput('D')">D</button>
+            <button class="key" onclick="handleInput('F')">F</button>
+            <button class="key" onclick="handleInput('G')">G</button>
+            <button class="key" onclick="handleInput('H')">H</button>
+            <button class="key" onclick="handleInput('J')">J</button>
+            <button class="key" onclick="handleInput('K')">K</button>
+            <button class="key" onclick="handleInput('L')">L</button>
+        </div>
+        <div class="kb-row">
+            <button class="key wide" onclick="handleInput('ENTER')">ENTER</button>
+            <button class="key" onclick="handleInput('Z')">Z</button>
+            <button class="key" onclick="handleInput('X')">X</button>
+            <button class="key" onclick="handleInput('C')">C</button>
+            <button class="key" onclick="handleInput('V')">V</button>
+            <button class="key" onclick="handleInput('B')">B</button>
+            <button class="key" onclick="handleInput('N')">N</button>
+            <button class="key" onclick="handleInput('M')">M</button>
+            <button class="key wide" onclick="handleInput('DEL')">DEL</button>
+        </div>
+    </div>
 </div>
 
 <script>
-    const targetWord = "MULLER"; // Загаданное слово
-    const grid = document.getElementById('grid');
-    const keyboard = document.getElementById('keyboard');
-    let currentRow = 0;
-    let currentTile = 0;
+    const target = "MULLER";
+    let curRow = 0, curCol = 0;
     let guesses = ["", "", "", "", "", ""];
 
-    // Создаем сетку 6x6
+    const grid = document.getElementById('grid');
     for (let i = 0; i < 6; i++) {
-        let row = document.createElement('div');
+        const row = document.createElement('div');
         row.className = 'wordle-row';
         for (let j = 0; j < 6; j++) {
-            let tile = document.createElement('div');
+            const tile = document.createElement('div');
             tile.className = 'tile';
-            tile.id = `tile-${i}-${j}`;
+            tile.id = `t-${i}-${j}`;
             row.appendChild(tile);
         }
         grid.appendChild(row);
     }
 
-    // Создаем клавиатуру
-    const keys = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Enter","Z","X","C","V","B","N","M","Del"];
-
-    keys.forEach(key => {
-        const button = document.createElement('div');
-        button.innerText = key;
-        button.className = 'key' + (key.length > 1 ? ' wide' : '');
-        button.onclick = () => handleInput(key);
-        keyboard.appendChild(button);
-    });
-
     function handleInput(key) {
-        if (key === "Enter") {
-            checkRow();
-        } else if (key === "Del" || key === "BACKSPACE") {
-            if (currentTile > 0) {
-                currentTile--;
-                guesses[currentRow] = guesses[currentRow].slice(0, -1);
+        if (key === 'ENTER') {
+            if (guesses[curRow].length === 6) checkRow();
+        } else if (key === 'DEL') {
+            if (curCol > 0) {
+                curCol--;
+                guesses[curRow] = guesses[curRow].slice(0, -1);
                 updateGrid();
             }
-        } else if (currentTile < 6 && key.length === 1 && /^[A-Z]$/.test(key)) {
-            guesses[currentRow] += key;
-            currentTile++;
-            updateGrid();
+        } else {
+            if (curCol < 6 && guesses[curRow].length < 6) {
+                guesses[curRow] += key;
+                curCol++;
+                updateGrid();
+            }
         }
     }
 
     function updateGrid() {
-        const rowTiles = [];
-        for (let i = 0; i < 6; i++) {
-            const tile = document.getElementById(`tile-${currentRow}-${i}`);
-            tile.innerText = guesses[currentRow][i] || "";
+        const tile = document.getElementById(`t-${curRow}-${curCol - (guesses[curRow].length === curCol ? 0 : 0)}`);
+        for(let i=0; i<6; i++) {
+            document.getElementById(`t-${curRow}-${i}`).innerText = guesses[curRow][i] || "";
         }
     }
 
     function checkRow() {
-        const guess = guesses[currentRow];
-        if (guess.length !== 6) {
-            alert("Слово должно быть из 6 букв!"); // Добавлено сообщение об ошибке
-            return;
-        }
-
-        // Проверяем, есть ли слово в словаре (можно добавить более сложную проверку на реальные слова)
-        // Для простоты, пока проверяем только на загаданное слово.
-        // const dictionary = ["MULLER", "LEWAND", "KIMMICH", "NEUER"]; // Пример словаря
-        // if (!dictionary.includes(guess)) {
-        //     alert("Такого слова нет в нашем словаре.");
-        //     return;
-        // }
-
-
+        const guess= guesses[curRow];
         for (let i = 0; i < 6; i++) {
-            const tile = document.getElementById(`tile-${currentRow}-${i}`);
-            const letter = guess[i];
-            
-            if (letter === targetWord[i]) {
-                tile.classList.add('correct');
-            } else if (targetWord.includes(letter)) {
-                tile.classList.add('present');
-            } else {
-                tile.classList.add('absent');
-            }
+            const tile = document.getElementById(`t-${curRow}-${i}`);
+            const char = guess[i];
+            if (char === target[i]) tile.classList.add('correct');
+            else if (target.includes(char)) tile.classList.add('present');
+            else tile.classList.add('absent');
         }
-
-        if (guess === targetWord) {
-            alert("Legendary! You guessed MULLER! ⚽️");
-            return;
-        }
-
-        if (currentRow === 5) {
-            alert("Game Over! The word was MULLER");
-        } else {
-            currentRow++;
-            currentTile = 0;
-        }
+        if (guess === target) alert("Legendary! MULLER!");
+        else if (curRow === 5) alert("Game Over! Word: MULLER");
+        else { curRow++; curCol = 0; }
     }
 
- 
     document.addEventListener('keydown', (e) => {
-        let key = e.key.toUpperCase();
-        if (key === "BACKSPACE") key = "Del";
-        handleInput(key);
+        const k = e.key.toUpperCase();
+        if (k === 'ENTER') handleInput('ENTER');
+        else if (k === 'BACKSPACE') handleInput('DEL');
+        else if (/^[A-Z]$/.test(k)) handleInput(k);
     });
 </script>
 
